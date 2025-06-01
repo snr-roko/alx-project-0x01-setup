@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 
-const User: React.FC = () => {
+const Users: React.FC = () => {
   return (
     <div>
       <Header />
@@ -9,4 +9,15 @@ const User: React.FC = () => {
   )
 }
 
-export default User
+export async function getStaticProps() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users")
+  const users = await response.json()
+
+  return {
+    props: {
+      users
+    }
+  }
+}
+
+export default Users
