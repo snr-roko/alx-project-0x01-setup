@@ -3,6 +3,7 @@ import { UserProps } from "@/interfaces";
 import UserCard from "@/components/common/UserCard";
 
 const Users: React.FC<UserProps[]> = ({ posts }) => {
+  console.log(posts)
   return (
     <div>
       <Header />
@@ -15,10 +16,10 @@ const Users: React.FC<UserProps[]> = ({ posts }) => {
             Add User
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-2">
-          {posts.map(({id, name, username, email, address, geo, phone, website, company}: UserProps, key: number) => (
+        <div className="grid md:grid-cols-2 gap-2">
+          {posts? posts.map(({id, name, username, email, address, geo, phone, website, company}: UserProps, key: number) => (
             <UserCard id={id} name={name} username={username} email={email} address={address} geo={geo} phone={phone} website={website} company={company} key={key} />
-          ))}
+          )) : null}
         </div>
       </main>    
     </div>
