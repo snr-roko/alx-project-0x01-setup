@@ -1,6 +1,6 @@
 import { UserProps } from "@/interfaces";
 
-const Cards: React.FC<UserProps> = ({ id, name, username, email, address, geo, phone, website, company }) => {
+const UserCard: React.FC<UserProps> = ({ id, name, username, email, address, geo, phone, website, company }) => {
 
   return (
     <div className="grid grid-cols-2 grid-rows-2 gap-4">
@@ -31,3 +31,5 @@ const Cards: React.FC<UserProps> = ({ id, name, username, email, address, geo, p
     </div>
   )
 }
+
+export default UserCard
