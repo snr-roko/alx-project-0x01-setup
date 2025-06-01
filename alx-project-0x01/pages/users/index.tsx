@@ -1,8 +1,8 @@
 import Header from "@/components/layout/Header";
 import { UserProps } from "@/interfaces";
-import UserCard from "@/components/common/Card";
+import UserCard from "@/components/common/UserCard";
 
-const Users: React.FC<UserProps[]> = ({ users }) => {
+const Users: React.FC<UserProps[]> = ({ posts }) => {
   return (
     <div>
       <Header />
@@ -16,7 +16,7 @@ const Users: React.FC<UserProps[]> = ({ users }) => {
           </button>
         </div>
         <div className="grid grid-cols-2 gap-2">
-          {users?.map(({id, name, username, email, address, geo, phone, website, company}: UserProps, key: number) => (
+          {posts?.map(({id, name, username, email, address, geo, phone, website, company}: UserProps, key: number) => (
             <UserCard id={id} name={name} username={username} email={email} address={address} geo={geo} phone={phone} website={website} company={company} key={key} />
           ))}
         </div>
@@ -27,13 +27,13 @@ const Users: React.FC<UserProps[]> = ({ users }) => {
 
 export async function getStaticProps() {
   const response = await fetch("https://jsonplaceholder.typicode.com/users")
-  const users = await response.json()
+  const posts = await response.json()
 
   return {
     props: {
-      users
+      posts
     }
   }
 }
 
-export default Users
+export default Users;

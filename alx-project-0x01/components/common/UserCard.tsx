@@ -32,4 +32,4 @@ const UserCard: React.FC<UserProps> = ({ id, name, username, email, address, geo
   )
 }
 
-export default UserCard
+export default UserCard;
